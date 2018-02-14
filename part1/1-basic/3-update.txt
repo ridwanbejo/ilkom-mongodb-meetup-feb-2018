@@ -1,0 +1,41 @@
+use jobsdb;
+
+db.applicant.update({name: "Gilang Ahmad"}, { $set: {address: "Jln. Ciwastra, Bandung"} });
+
+db.applicant.find({name: "Gilang Ahmad"});
+
+db.applicant.update(
+	{"_id" : ObjectId("5a82889ce1419bcbcacd0647")}, 
+	{ 
+		$push: { 
+			skills: { 
+				$each: ["Webpack", "HTML", "CSS"] 
+			} 
+		} 
+	}
+);
+
+db.applicant.find({name: "Gilang Ahmad"});
+
+db.applicant.update(
+	{ name: "Kurnia Jaya" },
+	{
+		name: "Kurnia Jaya",
+		address: "Leles, Garut",
+		email: [ "kurnia.jaya@gmail.com", "kurnia@jaya.com", "kurnia@linkedin.com"],
+		hobby: [ "tennis", "playing game", "touring"],
+		jobs_position: "Mobile Application Developer",
+		skills: [
+			"Android",
+			"React-Native",
+			"Xamarin"
+		],
+		contacts: [
+			{ type: "phone", order: 1, value: "7507722"},
+			{ type: "mobile phone", order: 2, value: "085723457233"},
+			{ type: "mobile phone", order: 3, value: "085723457255"},
+		]
+	}
+)
+
+db.applicant.find({name: "Kurnia Jaya"});

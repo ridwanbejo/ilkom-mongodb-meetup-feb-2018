@@ -1,0 +1,11 @@
+use jobsdb;
+
+db.applicant.remove({ skills: {$in: ["Django"] } })
+
+db.applicant.remove({ })
+
+db.applicant.count();
+
+db.applicant.drop();
+
+// db.dropDatabase();

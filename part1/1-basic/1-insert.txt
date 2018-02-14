@@ -1,0 +1,74 @@
+use jobsdb;
+show dbs;
+show collections;
+
+db.applicant.insert({
+	name: "Gilang Ahmad",
+	address: "Ciwastra, Bandung",
+	email: "gilang.ahmad@gmail.com",
+	jobs_position: "Frontend Web Developer",
+	skills: [
+		"PHP",
+		"Javascript",
+		"Angular.js",
+		"React.js",
+		"Gulp",
+		"React-Router",
+		"jQuery"
+	],
+	contacts: [
+		{ type: "phone", order: 1, value: "7501234"},
+		{ type: "mobile phone", order: 2, value: "085723457214"},
+		{ type: "phone", order: 3, value: "7502255"}
+	]
+});
+
+db.applicant.insertMany([{
+		name: "Kurnia Jaya",
+		address: "Leles, Garut",
+		email: "kurnia.jaya@gmail.com",
+		jobs_position: "Mobile Application Developer",
+		skills: [
+			"Android",
+			"React-Native",
+			"Xamarin"
+		],
+		contacts: [
+			{ type: "phone", order: 1, value: "7507722"},
+			{ type: "mobile phone", order: 2, value: "085723457233"},
+			{ type: "mobile phone", order: 3, value: "085723457255"},
+		]
+	},
+	{
+		name: "Maulana Yusuf",
+		address: "Tubagus Ismail, Bandung",
+		email: "maulana.yusuf@gmail.com",
+		jobs_position: "Backend Web Developer",
+		skills: [
+			"Django",
+			"Flask",
+			"MySQL",
+			"Celery"
+		],
+		contacts: [
+			{ type: "phone", order: 1, value: "7501113"}
+		]
+	},
+	{
+		name: "Taufik Hidayat",
+		address: "Gadobangkong, Cimahi",
+		email: "taufik.hidayat@gmail.com",
+		jobs_position: "Backend Web Developer",
+		skills: [
+			"Django",
+			"Flask",
+			"MySQL",
+			"Celery"
+		],
+		contacts: [
+			{ type: "phone", order: 1, value: "7501113"}
+		]
+	}
+]);
+
+db.applicant.count();

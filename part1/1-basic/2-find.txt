@@ -1,0 +1,31 @@
+use jobsdb;
+
+db.applicant.find({});
+
+db.applicant.createIndex( { "jobs_position": 1 } )
+
+db.applicant.find({jobs_position: {$eq: "Backend Web Developer" } });
+
+db.applicant.find({jobs_position: {$regex: /Backend/ } });
+
+db.applicant.createIndex( { "address": 1 } )
+
+db.applicant.find({address: {$regex: /Bandung/ } });
+
+db.applicant.createIndex( { "skills": 1 } )
+
+db.applicant.find({skills: { $in : ["Django"] }})
+
+db.applicant.find({skills: { $in : ["Android"] }})
+
+db.applicant.createIndex( { "jobs_position": "text" } )
+
+db.applicant.find({ $text: { $search: "-Frontend -Application Web Developer" } });
+
+db.applicant.createIndex( { "contacts": -1 } )
+
+db.applicant.find({ "contacts.value": {$eq: "085723457233" } });
+
+db.applicant.find({}).sort({"_id": 1});
+
+db.applicant.find({}).sort({"_id": -1});

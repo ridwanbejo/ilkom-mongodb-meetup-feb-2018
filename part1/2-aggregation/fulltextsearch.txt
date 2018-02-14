@@ -1,0 +1,3 @@
+db.restaurants.createIndex({name: "text"})
+
+db.restaurants.find( { $text: { $search: "bakery -shop" } } ).limit(5);

@@ -1,0 +1,20 @@
+db.restaurants.aggregate([
+	{ $match: { cuisine: { $eq: "Chinese" } } },
+	{
+		$group: {
+			_id: {
+				borough: "$borough"
+			},
+			total: { $sum: 1 }
+		}	
+	},
+	{ $match: { total: { $gt: 100 } } },
+	{
+		$sort: {
+			total: -1
+		}
+	},
+	{
+		$limit: 10
+	}
+]);
