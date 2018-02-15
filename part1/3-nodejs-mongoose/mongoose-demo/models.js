@@ -13,7 +13,6 @@ var ApplicantSchema = mongoose.model('Applicant', new Schema({
 	})
 );
 
-
 module.exports  = {
 	ApplicantSchema
 }
