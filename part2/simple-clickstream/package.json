@@ -13,7 +13,9 @@
   "author": "ridwanbejo",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.2",
     "kue": "^0.11.6",
+    "kue-ui": "^0.1.0",
     "mongoose": "^5.0.4",
     "redis": "^2.8.0"
   }

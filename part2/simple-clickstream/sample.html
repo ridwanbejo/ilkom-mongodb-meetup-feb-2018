@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Simple Click Stream Demo</title>
+	</head>
+	<body>
+		<form id="f-login-form" class="login-form">
+			<p>Please login with your account!</p>
+			Username: <input id="f-login-username-field" class="username-field" type="text" name="username" /> <br/><br/>
+			Password: <input id="f-login-password-field" class="password-field" type="password" name="password" /> <br/><br/>
+			<input id="f-login-submit-button" class="submit-button" type="button"  value="Login" />
+		</form>
+	</body>
+</html>
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  ></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('*').on('click', function(e) {
+	 	console.log(this.id);
+	 	console.log($(this).attr("class"));
+	 	console.log(e.pageX + ' , ' + e.pageY);
+
+	 	$.ajax({
+		  url: "http://localhost:3000/store_clickstream",
+		  type: "POST",
+		  data: {
+		  	url: "http://localhost/index.php/login",
+			mouse_position_x: e.pageX,
+			mouse_position_y: e.pageY,
+			selectedElementID: this.id,
+			selectedElementClass: $(this).attr("class")
+		  },
+		  dataType: 'json',
+		  success: function(html){
+		    $("#results").append(html);
+		  }
+		});
+
+	 	return false;
+	});
+
+});
+
+
+</script>
