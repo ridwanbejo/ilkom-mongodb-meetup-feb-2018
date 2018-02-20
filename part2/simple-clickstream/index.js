@@ -1,7 +1,7 @@
 var kue = require('kue')
   , jobs = kue.createQueue({
 		  redis: {
-		    port: 32770,
+		    port: 32780,
 		    host: '192.168.99.100',
 		  }
 		});

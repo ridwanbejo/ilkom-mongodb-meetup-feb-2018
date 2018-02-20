@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://sense-therapy:secret12345@192.168.99.100:32769/therapy');
+mongoose.connect('mongodb://sense-therapy:secret12345@192.168.99.100:32779/therapy');
 
 var clickstreamLogSchema = new Schema({ 
 		url: String,
